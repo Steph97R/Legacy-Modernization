@@ -323,19 +323,7 @@ Create `TransactionLedgerService`. Migrate `PROCTRAN` inserts. XFRFUN calls it i
 Implement `TransferOrchestrationService` in Spring Boot. Wire it to `AccountService` and `TransactionLedgerService`. Route new transfers through the Spring Boot orchestrator. Run XFRFUN in shadow/comparison mode.
 
 ### Phase 5 — Decommission XFRFUN
-Once confidence is established (traffic comparison, regression tests passing), remove the z/OS Connect route pointing at XFRFUN. Decommission the CICS program.
-
-```mermaid
-gantt
-    title XFRFUN Strangler Fig Migration Timeline
-    dateFormat  YYYY-QQ
-    section Migration Phases
-    Phase 1 - REST Wrapper (z/OS Connect)  :done, p1, 2024-Q1, 1Q
-    Phase 2 - Extract AccountService       :active, p2, 2024-Q2, 2Q
-    Phase 3 - Extract LedgerService        :p3, 2024-Q4, 1Q
-    Phase 4 - Spring Boot Orchestration    :p4, 2025-Q1, 2Q
-    Phase 5 - Decommission XFRFUN          :p5, 2025-Q3, 1Q
-```
+Once confidence is established (traffic comparison, regression tests passing), remove the z/OS Connect route pointing at XFRFUN. Decommission the CICS program. 
 
 ---
 
