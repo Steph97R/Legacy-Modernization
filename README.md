@@ -43,6 +43,7 @@ Focused on [`XFRFUN.cbl`](https://github.com/IBM/Bank-of-Z/tree/main/src/base/ci
 | 🏗️ Microservice Proposal | [`architecture/XFRFUN-microservice-proposal.md`](architecture/XFRFUN-microservice-proposal.md) | Decomposition into 4 services, Saga pattern design, REST API contract, COBOL→microservice mapping table, Strangler Fig migration plan |
 | ☕ Kotlin Equivalent | [`java/TransferService.kt`](java/TransferService.kt) | Production-quality Spring Boot service replicating all XFRFUN business logic with KDoc traceability back to COBOL sections |
 | 🧪 Kotlin Tests | [`java/TransferServiceTest.kt`](java/TransferServiceTest.kt) | 18 JUnit 5 + Mockito regression tests covering every scenario in the test matrix |
+| 🤖 Agent Design | [`Agents.md`](Agents.md) | Bob agent orchestration design — how the 4 parallel subagents were structured, tools used, and used prompts to reproduce the full workflow |
 
 ---
 
@@ -66,7 +67,7 @@ Focused on [`XFRFUN.cbl`](https://github.com/IBM/Bank-of-Z/tree/main/src/base/ci
 ```mermaid
 flowchart LR
     SRC["XFRFUN.cbl\n(Bank-of-Z)"]
-    BOB["IBM Bob\nZ Code Mode"]
+    BOB["IBM Bob\nZ Code Mode\nOrchestrator"]
     SRC --> BOB
 
     BOB --> A["📖 docs/\nCode Explanation"]
@@ -77,8 +78,10 @@ flowchart LR
 
 1. Bob reads `XFRFUN.cbl` and its COMMAREA copybook `XFRFUN.cpy`
 2. Z Code mode provides deep COBOL/CICS/DB2 context
-3. Four parallel subagents each generate one artifact independently
+3. Four **parallel subagents** each generate one artifact independently
 4. All output is written into `Legacy-Modernization/` for review and use
+
+> See [`Agents.md`](Agents.md) for the full agent design, tools breakdown, and used prompts to reproduce this workflow.
 
 ---
 
@@ -87,6 +90,7 @@ flowchart LR
 ```
 Legacy-Modernization/
 ├── README.md                          ← This file
+├── Agents.md                          ← Agent design + reconstructed prompts
 ├── docs/
 │   └── XFRFUN-explanation.md          ← Technical explanation
 ├── testing/
