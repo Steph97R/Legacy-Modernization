@@ -30,7 +30,7 @@ Without automation, each of these phases is a separate manual engagement.
 
 The **Legacy Modernization Accelerator** is a Bob-powered workflow that uses **Z Code mode** and **parallel subagents** to analyze IBM Z COBOL programs and generate the full suite of modernization artifacts — automatically — reducing the manual effort from weeks to minutes.
 
-Focused on [`XFRFUN.cbl`](../Bank-Of-Z/src/base/cics/cobol/XFRFUN.cbl) from the [Bank-of-Z](../Bank-Of-Z) reference application, the accelerator reads the source program once and fans out into four parallel generation tasks, each producing a production-ready artifact in `Legacy-Modernization/`.
+Focused on [`XFRFUN.cbl`](https://github.com/IBM/Bank-of-Z/tree/main/src/base/cics/cobol/XFRFUN.cbl) from the [Bank-of-Z](https://github.com/IBM/Bank-of-Z) reference application, the accelerator reads the source program once and fans out into four parallel generation tasks, each producing a production-ready artifact in `Legacy-Modernization/`.
 
 ---
 
